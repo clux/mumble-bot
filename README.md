@@ -15,8 +15,8 @@ Note that this expects valid certificate files in your current working directory
 Currently a private module, so clone, install deps, and link:
 
 ```sh
-git clone THISREPO
-cd THISREPO
+git clone https://github.com/clux/mumble-bot.git
+cd mumble-bot
 npm install
 npm link
 ```
