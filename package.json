@@ -12,6 +12,7 @@
   "bin": "bot.js",
   "scripts": {},
   "dependencies": {
+    "lame": "^1.2.2",
     "mumble": "^0.1.2"
   },
   "devDependencies": {},
