@@ -1,0 +1,22 @@
+{
+  "name": "mumble-bot",
+  "private": true,
+  "description": "A mumble bot experiment",
+  "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "clux/mumble-bot"
+  },
+  "keywords": [],
+  "bin": "bot.js",
+  "scripts": {},
+  "dependencies": {
+    "mumble": "^0.1.2"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "http://github.com/clux/mumble-bot/issues"
+  },
+  "license": "MIT"
+}
