@@ -25,6 +25,6 @@ npm link
 If you have a valid certificate with mumble, you can reuse the exported one here by converting it to a pem files using `openssl`:
 
 ```sh
-openssl pkcs12 -in ../mumble_cert.p12 -out key.pem -nodes -nocerts
-openssl pkcs12 -in ../mumble_cert.p12 -out cert.pem -nodes -nokeys
+openssl pkcs12 -in mumble_cert.p12 -out key.pem -nodes -nocerts
+openssl pkcs12 -in mumble_cert.p12 -out cert.pem -nodes -nokeys
 ```
