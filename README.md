@@ -36,6 +36,7 @@ Play the diablo legendary drop sound with 3 simultaneously connecting clients to
 
 ```sh
 export MUMBLE_URL=mumble://host:port/"Chan"
+export MUMBLE_PASS=*******
 mumble-drops
 ```
 

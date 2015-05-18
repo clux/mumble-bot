@@ -1,9 +1,7 @@
 #!/usr/bin/env node
-
 var mumble = require('mumble');
 var lame = require('lame');
 var fs = require('fs');
-
 
 var dropSound = function (client, sound) {
   var decoder = new lame.Decoder();
