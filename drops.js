@@ -2,6 +2,7 @@
 var mumble = require('mumble');
 var lame = require('lame');
 var fs = require('fs');
+var join = require('path').join;
 
 var dropSound = function (client, sound) {
   var decoder = new lame.Decoder();
@@ -20,7 +21,7 @@ var dropSound = function (client, sound) {
 
 [1,2,3].forEach(function (num) {
   (function () {
-    var sound = fs.createReadStream('legendary_sound.mp3');
+    var sound = fs.createReadStream(join(__dirname,  'legendary_sound.mp3'));
     setTimeout(function () {
       mumble.connect(process.env.MUMBLE_URL, function (err, c) {
         if (err) {
@@ -33,6 +34,6 @@ var dropSound = function (client, sound) {
           });
         }
       });
-    }, 500);
+    }, 1000);
   }(num));
 });
