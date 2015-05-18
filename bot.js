@@ -19,9 +19,16 @@ mumble.connect(url, options, function (err, c) {
   c.on('initialized', function () {
     console.log('Connection initialized');
     // Connection is authenticated and usable.
-  });
-  c.on('voice', function (event) {
-    console.log('Mixed voice', event);
-    //var pcmData = event.data;
+
+    // user record
+    //var u = c.userByName('clux')
+    //console.log(u.id, u.name);
+    //u.outputStream().pipe(fs.createWriteStream('./test.pcm'));
+
+    // global record
+    //c.outputStream().pipe(fs.createWriteStream('./test.pcm'));
+
+    // playback
+    fs.createReadStream('./test.pcm').pipe(c.inputStream());
   });
 });

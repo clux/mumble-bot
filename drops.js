@@ -19,7 +19,7 @@ var dropSound = function (client, sound) {
   stream = sound.pipe(decoder);
 };
 
-[1,2,3].forEach(function (num) {
+[1,2,3,4,5,6].forEach(function (num) {
   (function () {
     var sound = fs.createReadStream(join(__dirname,  'legendary_sound.mp3'));
     setTimeout(function () {
@@ -34,6 +34,6 @@ var dropSound = function (client, sound) {
           });
         }
       });
-    }, 1000);
+    }, 1500);
   }(num));
 });
