@@ -23,11 +23,15 @@ var dropSound = function (client, sound) {
     var sound = fs.createReadStream('legendary_sound.mp3');
     setTimeout(function () {
       mumble.connect(process.env.MUMBLE_URL, function (err, c) {
-        if (err) { throw new Error(err); }
-        c.authenticate('drop-' + num, process.env.MUMBLE_PASS);
-        c.on('initialized', function () {
-          dropSound(c, sound);
-        });
+        if (err) {
+          console.warn(err);
+        }
+        else {
+          c.authenticate('drop-' + num, process.env.MUMBLE_PASS);
+          c.on('initialized', function () {
+            dropSound(c, sound);
+          });
+        }
       });
     }, 500);
   }(num));
