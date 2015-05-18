@@ -30,3 +30,11 @@ If you have a valid certificate with mumble, you can reuse the exported one here
 openssl pkcs12 -in mumble_cert.p12 -out key.pem -nodes -nocerts
 openssl pkcs12 -in mumble_cert.p12 -out cert.pem -nodes -nokeys
 ```
+
+## Fun Usage
+Play the diablo legendary drop sound with 4 simultaneously connecting clients to troll people:
+
+```sh
+source config.sh # as above
+mumble-drops
+```

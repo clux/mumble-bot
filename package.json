@@ -9,7 +9,10 @@
     "url": "clux/mumble-bot"
   },
   "keywords": [],
-  "bin": "bot.js",
+  "bin": {
+    "mumble-bot": "bot.js",
+    "mumble-drops": "drops.js"
+  },
   "scripts": {},
   "dependencies": {
     "lame": "^1.2.2",
