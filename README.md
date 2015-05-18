@@ -32,9 +32,11 @@ openssl pkcs12 -in mumble_cert.p12 -out cert.pem -nodes -nokeys
 ```
 
 ## Fun Usage
-Play the diablo legendary drop sound with 4 simultaneously connecting clients to troll people:
+Play the diablo legendary drop sound with 3 simultaneously connecting clients to troll people:
 
 ```sh
 source config.sh # as above
 mumble-drops
 ```
+
+Just note that you will be banned with more than 10 connects within a two minute time frame.
