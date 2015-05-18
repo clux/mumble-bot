@@ -35,7 +35,7 @@ openssl pkcs12 -in mumble_cert.p12 -out cert.pem -nodes -nokeys
 Play the diablo legendary drop sound with 3 simultaneously connecting clients to troll people:
 
 ```sh
-source config.sh # as above
+export MUMBLE_URL=mumble://host:port/"Chan"
 mumble-drops
 ```
 
