@@ -29,9 +29,11 @@ var pipeMp3 = function (client, mp3) {
 };
 
 
-console.log('Connecting');
+console.log('Connecting to', url);
 mumble.connect(url, options, function (err, c) {
   if (err) { throw new Error(err); }
+
+  c.authenticate(process.env.MUMBLE_USER, process.env.MUMBLE_PASS);
 
   console.log('Connected');
   c.on('initialized', function () {

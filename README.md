@@ -5,7 +5,9 @@ An experiment in reading data from mumble.
 Set the mumble url as an environment variable and start:
 
 ```sh
-export MUMBLE_URL=mumble://user:pass@host:port/"Chan"
+export MUMBLE_URL=mumble://host:port/"Chan"
+export MUMBLE_USER=username
+export MUMBLE_PASS=*******
 mumble-bot
 ```
 
