@@ -16,19 +16,19 @@ mumble.connect(url, options, function (err, c) {
   c.authenticate(process.env.MUMBLE_USER, process.env.MUMBLE_PASS);
 
   console.log('Connected');
-  c.on('initialized', function () {
+  c.on('ready', function () {
     console.log('Connection initialized');
-    // Connection is authenticated and usable.
-
     // user record
     //var u = c.userByName('clux')
     //console.log(u.id, u.name);
     //u.outputStream().pipe(fs.createWriteStream('./test.pcm'));
 
     // global record
+    //console.log('recording', c.ready)
     //c.outputStream().pipe(fs.createWriteStream('./test.pcm'));
 
     // playback
-    fs.createReadStream('./test.pcm').pipe(c.inputStream());
+    //console.log('playing back', c.ready)
+    //fs.createReadStream('./test.pcm').pipe(c.inputStream());
   });
 });
