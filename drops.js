@@ -19,21 +19,19 @@ var dropSound = function (client, sound) {
   stream = sound.pipe(decoder);
 };
 
-[1,2,3,4,5,6].forEach(function (num) {
-  (function () {
-    var sound = fs.createReadStream(join(__dirname,  'legendary_sound.mp3'));
-    setTimeout(function () {
-      mumble.connect(process.env.MUMBLE_URL, function (err, c) {
-        if (err) {
-          console.warn(err);
-        }
-        else {
-          c.authenticate('drop-' + num, process.env.MUMBLE_PASS);
-          c.on('initialized', function () {
-            dropSound(c, sound);
-          });
-        }
+[1,2,3,4].forEach(function (num) {
+  var sound = fs.createReadStream(join(__dirname,  'legendary_sound.mp3'));
+  mumble.connect(process.env.MUMBLE_URL, function (err, c) {
+    if (err) {
+      console.warn(err);
+    }
+    else {
+      c.authenticate('drop-' + num, process.env.MUMBLE_PASS);
+      c.on('initialized', function () {
+        setTimeout(function () {
+          dropSound(c, sound);
+        }, 500+num*500);
       });
-    }, 1500);
-  }(num));
+    }
+  });
 });
