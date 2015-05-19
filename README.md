@@ -41,3 +41,15 @@ mumble-drops
 ```
 
 Just note that you will be banned with more than 10 connects within a two minute time frame.
+
+## Recording and playback
+Functionality of the main bot.
+
+```sh
+# stream to test.pcm
+mumble-bot -u user -o test.pcm
+# play back locally
+play -t raw -r 44k -e signed -b 16 -c 1 test.pcm
+# play back in channel
+mumble-bot -u user -i test.pcm
+```

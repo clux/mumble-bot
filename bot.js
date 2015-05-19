@@ -2,12 +2,23 @@
 var mumble = require('mumble');
 var fs = require('fs');
 var join = require('path').join;
+var argv = require('yargs')
+  .describe('o', 'Output file')
+  .describe('u', 'User stream to target')
+  .string('o')
+  .string('u')
+  .describe('i', 'Input source')
+  .string('i')
+  .argv;
 
 var url = process.env.MUMBLE_URL;
 var options = {
   key: fs.readFileSync(join(process.cwd(), 'key.pem')),
   cert: fs.readFileSync(join(process.cwd(), 'cert.pem'))
 };
+
+var output = join(process.cwd(), argv.o);
+var input = join(process.cwd(), argv.p);
 
 console.log('Connecting to', url);
 mumble.connect(url, options, function (err, c) {
@@ -18,17 +29,15 @@ mumble.connect(url, options, function (err, c) {
   console.log('Connected');
   c.on('ready', function () {
     console.log('Connection initialized');
-    // user record
-    //var u = c.userByName('clux')
-    //console.log(u.id, u.name);
-    //u.outputStream().pipe(fs.createWriteStream('./test.pcm'));
 
-    // global record
-    //console.log('recording', c.ready)
-    //c.outputStream().pipe(fs.createWriteStream('./test.pcm'));
-
-    // playback
-    //console.log('playing back', c.ready)
-    //fs.createReadStream('./test.pcm').pipe(c.inputStream());
+    var source = argv.u ? c.userByName(argv.u) : c;
+    if (argv.o) {
+      console.log('recording');
+      source.outputStream().pipe(fs.createWriteStream(output));
+    }
+    else if (argv.i) {
+      console.log('playing');
+      fs.createReadStream(input).pipe(source.inputStream());
+    }
   });
 });
