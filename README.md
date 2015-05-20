@@ -48,7 +48,7 @@ Functionality of the main bot.
 ```sh
 # stream to test.pcm
 mumble-bot -u user -o test.pcm
-# play back in channel
+# whisper to user (also accepts wav)
 mumble-bot -u user -i test.pcm
 ```
 

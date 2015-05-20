@@ -32,13 +32,16 @@ mumble.connect(url, options, function (err, c) {
     console.log('Connection initialized');
 
     var source = argv.u ? c.userByName(argv.u) : c;
-    if (argv.o) {
-      console.log('recording');
-      source.outputStream().pipe(fs.createWriteStream(output));
-    }
-    if (argv.i) {
-      console.log('playing');
-      fs.createReadStream(input).pipe(source.inputStream());
+    if (c) {
+      console.log('Got stream');
+      if (argv.o) {
+        console.log('recording');
+        source.outputStream().pipe(fs.createWriteStream(output));
+      }
+      if (argv.i) {
+        console.log('playing');
+        fs.createReadStream(input).pipe(source.inputStream());
+      }
     }
   });
 });
