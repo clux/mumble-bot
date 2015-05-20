@@ -48,8 +48,16 @@ Functionality of the main bot.
 ```sh
 # stream to test.pcm
 mumble-bot -u user -o test.pcm
-# play back locally
-play -t raw -r 44k -e signed -b 16 -c 1 test.pcm
 # play back in channel
 mumble-bot -u user -i test.pcm
+```
+
+## Using PCM data
+For posterity:
+
+```sh
+# playback through `play` or use same arguments to `sox` to save as wav
+sox -t raw -r 48k -e signed -b 16 -c 1 test.pcm test.wav
+# convert to mp3
+lame test.wav test.mp3
 ```
