@@ -14,33 +14,27 @@ var options = {
   cert: fs.readFileSync(join(process.cwd(), 'cert.pem'))
 };
 
-if (argv.o) {
-  var output = join(process.cwd(), argv.o);
-}
-if (argv.i) {
-  var input = join(process.cwd(), argv.i);
-}
 
 console.log('Connecting to', url);
 mumble.connect(url, options, function (err, c) {
   if (err) { throw new Error(err); }
 
   c.authenticate(process.env.MUMBLE_USER, process.env.MUMBLE_PASS);
-
-  console.log('Connected');
   c.on('ready', function () {
-    console.log('Connection initialized');
+    c.channelByName(process.env.MUMBLE_CHAN).join();
 
-    var source = argv.u ? c.userByName(argv.u) : c;
+    var resource = argv.u ? c.userByName(argv.u) : c;
+    var text = argv.u ? argv.u : process.env.MUMBLE_CHAN;
     if (c) {
-      console.log('Got stream');
       if (argv.o) {
-        console.log('recording');
-        source.outputStream().pipe(fs.createWriteStream(output));
+        var output = join(process.cwd(), argv.o);
+        console.log('●', text, '>', argv.o);
+        resource.outputStream().pipe(fs.createWriteStream(output));
       }
       if (argv.i) {
-        console.log('playing');
-        fs.createReadStream(input).pipe(source.inputStream());
+        var input = join(process.cwd(), argv.i);
+        console.log('▶',text, '<', argv.i);
+        fs.createReadStream(input).pipe(resource.inputStream());
       }
     }
   });

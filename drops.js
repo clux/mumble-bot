@@ -19,9 +19,11 @@ var dropSound = function (client, sound) {
   stream = sound.pipe(decoder);
 };
 
+var url = process.env.MUMBLE_URL + process.env.MUMBLE_CHAN;
+
 [1,2,3,4].forEach(function (num) {
   var sound = fs.createReadStream(join(__dirname,  'legendary_sound.mp3'));
-  mumble.connect(process.env.MUMBLE_URL, function (err, c) {
+  mumble.connect(url, function (err, c) {
     if (err) {
       console.warn(err);
     }

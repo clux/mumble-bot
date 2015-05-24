@@ -5,7 +5,8 @@ An experiment in reading data from mumble.
 Set the mumble url as an environment variable and start:
 
 ```sh
-export MUMBLE_URL=mumble://host:port/"Chan"
+export MUMBLE_URL=mumble://host:port/
+export MUMBLE_CHAN=channel
 export MUMBLE_USER=username
 export MUMBLE_PASS=*******
 mumble-bot
@@ -32,11 +33,10 @@ openssl pkcs12 -in mumble_cert.p12 -out cert.pem -nodes -nokeys
 ```
 
 ## Fun Usage
-Play the diablo legendary drop sound with 3 simultaneously connecting clients to troll people:
+Play the diablo legendary drop sound with 3 simultaneously connecting clients to troll people
 
 ```sh
-export MUMBLE_URL=mumble://host:port/"Chan"
-export MUMBLE_PASS=*******
+# set same environment variables as above (NB: MUMBLE_USER ignored)
 mumble-drops
 ```
 
