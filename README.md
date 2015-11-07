@@ -1,4 +1,7 @@
 # mumble-bot
+[![build status](https://secure.travis-ci.org/clux/mumble-bot.svg)](http://travis-ci.org/clux/mumble-bot)
+[![dependency status](https://david-dm.org/clux/mumble-bot.svg)](https://david-dm.org/clux/mumble-bot)
+
 An experiment in reading data from mumble.
 
 ## Usage
